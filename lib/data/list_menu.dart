@@ -10,7 +10,7 @@ class ListMenu{
     CoffeMenu('raf.jpg','Раф' , 100),
   ];
 
-  Future<List<CoffeMenu>> getListMenu()async{
+  List<CoffeMenu> getListMenu(){
     return listMenu;
   }
 
