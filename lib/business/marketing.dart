@@ -13,8 +13,6 @@ class Counter extends StateNotifier<List<CoffeMenu>>{
   }
 
   void buyNot(CoffeMenu cofee){
- //cofee.isBuy=!cofee.isBuy;
- //state[0].isBuy=!state[0].isBuy;
     cofee.isBuy=!cofee.isBuy;
    state=state.map((e) => e.name==cofee.name?cofee:e).toList();
 
