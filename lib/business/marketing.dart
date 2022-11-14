@@ -3,9 +3,9 @@ import 'package:flutter_riverpod_shop/data/list_menu.dart';
 
 import '../data/model/menu.dart';
 
-class Counter extends StateNotifier<List<CoffeMenu>>{
+class MenuNotifier extends StateNotifier<List<CoffeMenu>>{
   final ListMenu list;
-  Counter(this.list):super([]){
+  MenuNotifier(this.list):super([]){
     init();
   }
   void init() {
@@ -13,9 +13,54 @@ class Counter extends StateNotifier<List<CoffeMenu>>{
   }
 
   void buyNot(CoffeMenu cofee){
-    cofee.isBuy=!cofee.isBuy;
-   state=state.map((e) => e.name==cofee.name?cofee:e).toList();
+   state=state.map((e) {
+     if(e==cofee){
+       e.isBuy=!e.isBuy;
+       return e;
+     }else{
+       return e;
+     }
+   }).toList();
+  }
+
+  void clearBuyStatus(){
+    state=state.map((e) {
+      if(e.isBuy==true){
+        e.isBuy=false;
+        return e;
+      }else{
+        return e;
+      }
+
+    }).toList();
+  }
+}
+
+class BadgeNotifier extends StateNotifier<List<CoffeMenu>>{
+  //List<CoffeMenu> badgeList;
+
+  BadgeNotifier() : super([]);
+
+  /*List<CoffeMenu> getBadge() {
+    return badgeList;
+  }*/
+
+  void changBadgeCount(CoffeMenu cofee) {
+
+    if (cofee.isBuy) {
+      state.add(cofee);
+
+    } else {
+      state.remove(cofee);
+    }
+  }
+
+  void clearBadge() {
+    state.clear();
+
 
   }
+
+
 
 }
