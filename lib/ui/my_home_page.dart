@@ -79,8 +79,7 @@ class MyHomePage extends ConsumerWidget {
                                 color: Color.fromARGB(255, 174, 206, 231),
                                 height: 40,
                                 width: 40,
-                                child: Consumer(builder: (context,ref,child){
-                                  return IconButton(
+                                child: IconButton(
                                     icon: Icon(
                                       Icons.shopping_basket,
                                       color:
@@ -92,9 +91,7 @@ class MyHomePage extends ConsumerWidget {
                                       menuNotifier.buyNot(menu);
                                       badgeNotifier.changBadgeCount(menu);
                                     },
-                                  );
-                                },),
-
+                                  ),
                               ),
                             )
                           ],
