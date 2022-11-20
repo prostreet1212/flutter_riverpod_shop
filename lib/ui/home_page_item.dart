@@ -9,16 +9,14 @@ class HomePageItem extends ConsumerWidget {
       {super.key,
       required this.menu,
       required this.menuNotifier,
-      required this.badgeNotifier})
-      ;
+      required this.badgeNotifier});
   final CoffeMenu menu;
   final MenuNotifier menuNotifier;
   final BadgeNotifier badgeNotifier;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Builder(builder: (context){
-      return Card(
+    return Card(
         color: const Color.fromARGB(255, 255, 229, 85),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -49,8 +47,6 @@ class HomePageItem extends ConsumerWidget {
                           color: !menu.isBuy ? Colors.grey : Colors.red,
                         ),
                         onPressed: () {
-                          //ref.read(menuProvider.notifier).buyNot(menu);
-                          //ref.read(badgeProvider.notifier).state.add(menu);
                           menuNotifier.buyNot(menu);
                           badgeNotifier.changBadgeCount(menu);
                         },
@@ -84,6 +80,6 @@ class HomePageItem extends ConsumerWidget {
           ],
         ),
       );
-    });
+
   }
 }

@@ -37,13 +37,10 @@ class MenuNotifier extends StateNotifier<List<CoffeMenu>>{
 }
 
 class BadgeNotifier extends StateNotifier<List<CoffeMenu>>{
-  //List<CoffeMenu> badgeList;
 
   BadgeNotifier() : super([]);
 
-  /*List<CoffeMenu> getBadge() {
-    return badgeList;
-  }*/
+
 
   void changBadgeCount(CoffeMenu cofee) {
 
