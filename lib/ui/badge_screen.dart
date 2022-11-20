@@ -35,7 +35,7 @@ class BadgeScreen extends ConsumerWidget {
                   itemBuilder: (context, index) {
                     return Card(
                       color: Colors.yellow,
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 200,
                         child: Row(
@@ -74,7 +74,7 @@ class BadgeScreen extends ConsumerWidget {
                   })),
           Expanded(
             flex: 1,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: ElevatedButton(
                 style: ButtonStyle(
