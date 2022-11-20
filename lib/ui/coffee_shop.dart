@@ -57,7 +57,7 @@ class CoffeeShop extends ConsumerWidget {
                               ),
                               onPressed: () {
                                 menuNotifier.buyNot(menu);
-                                badgeNotifier.changBadgeCount(menu);1
+                                badgeNotifier.changBadgeCount(menu);
                               },
                             ),
 
