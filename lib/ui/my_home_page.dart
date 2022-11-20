@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,7 @@ import 'package:flutter_riverpod_shop/ui/badge_screen.dart';
 
 import '../business/providers.dart';
 import '../data/model/menu.dart';
-import '../data/list_menu.dart';
+import 'home_page_item.dart';
 
 
 
@@ -29,12 +28,12 @@ class MyHomePage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(title),
         leading:Badge(
-            badgeContent: Text('${badgeCount.toString()}'),
+            badgeContent: Text('$badgeCount'),
             position: const BadgePosition(start: 26, bottom: 26),
             child: IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return BadgeScreen();
+                  return const BadgeScreen();
                 }));
               },
               icon: const Icon(Icons.shopping_cart),
@@ -54,72 +53,7 @@ class MyHomePage extends ConsumerWidget {
           crossAxisCount: 2,
           children: menuList.map(
             (menu) {
-              return Card(
-                  color: Color.fromARGB(255, 255, 229, 85),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Wrap(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15)),
-                        child: Stack(
-                          children: [
-                            Image.asset(
-                              'assets/images/${menu.image}',
-                              fit: BoxFit.fitWidth,
-                            ),
-                            Positioned(
-                              bottom: 0,
-                              right: 0,
-                              child: Container(
-                                alignment: Alignment.center,
-                                color: Color.fromARGB(255, 174, 206, 231),
-                                height: 40,
-                                width: 40,
-                                child: IconButton(
-                                    icon: Icon(
-                                      Icons.shopping_basket,
-                                      color:
-                                      !menu.isBuy ? Colors.grey : Colors.red,
-                                    ),
-                                    onPressed: () {
-                                      //ref.read(menuProvider.notifier).buyNot(menu);
-                                      //ref.read(badgeProvider.notifier).state.add(menu);
-                                      menuNotifier.buyNot(menu);
-                                      badgeNotifier.changBadgeCount(menu);
-                                    },
-                                  ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: 7,
-                          ),
-                          Text(
-                            menu.name,
-                            textAlign: TextAlign.center,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text('Цена: '),
-                              Text(
-                                '${menu.price} руб.',
-                              ),
-                            ],
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                );
+              return HomePageItem(menu: menu,menuNotifier: menuNotifier,badgeNotifier: badgeNotifier,);
             },
           ).toList()),
     );

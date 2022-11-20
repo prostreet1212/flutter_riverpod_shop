@@ -14,14 +14,13 @@ class BadgeScreen extends ConsumerWidget {
     List<CoffeMenu> badgeList=ref.watch(badgeProvider);
     BadgeNotifier badgeNotifier=ref.watch(badgeProvider.notifier);
     MenuNotifier menuNotifier = ref.watch(menuProvider.notifier);
-    List<CoffeMenu> menuList = ref.watch(menuProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Корзина'),
+        title: const Text('Корзина'),
         centerTitle: true,
       ),
-      body: badgeList.length == 0
-          ? Center(
+      body: badgeList.isEmpty
+          ? const Center(
         child: Text(
           'Корзина пуста',
           style: TextStyle(fontSize: 24),
@@ -56,18 +55,18 @@ class BadgeScreen extends ConsumerWidget {
                                       Text(
                                             badgeList[index]
                                             .name,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20),
                                       ),
                                       Text(
                                           'Цена: ${badgeList[index].price} руб.',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontStyle: FontStyle.italic,
                                               fontSize: 16))
                                     ],
                                   ),
-                                ))
+                                )),
                           ],
                         ),
                       ),
@@ -82,7 +81,7 @@ class BadgeScreen extends ConsumerWidget {
                   backgroundColor:
                   MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text(
+                child: const Text(
                   'Оформить заказ',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
