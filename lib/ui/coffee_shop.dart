@@ -13,7 +13,6 @@ class CoffeeShop extends ConsumerWidget {
     MenuNotifier menuNotifier = ref.watch(menuProvider.notifier);
     BadgeNotifier badgeNotifier = ref.watch(badgeProvider.notifier);
 
-
     return GridView.count(
       shrinkWrap: true,
       primary: false,
@@ -34,7 +33,8 @@ class CoffeeShop extends ConsumerWidget {
                 children: [
                   ClipRRect(
                     borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15)),
                     child: Stack(
                       children: [
                         Image.asset(
@@ -49,8 +49,7 @@ class CoffeeShop extends ConsumerWidget {
                             color: const Color.fromARGB(255, 174, 206, 231),
                             height: 40,
                             width: 40,
-                            child:
-                            IconButton(
+                            child: IconButton(
                               icon: Icon(
                                 Icons.shopping_basket,
                                 color: !menu.isBuy ? Colors.grey : Colors.red,
@@ -60,7 +59,6 @@ class CoffeeShop extends ConsumerWidget {
                                 badgeNotifier.changBadgeCount(menu);
                               },
                             ),
-
                           ),
                         )
                       ],

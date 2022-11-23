@@ -3,9 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod_shop/ui/badge_widget.dart';
 import 'coffee_shop.dart';
 
-
-
-
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key, required this.title});
 
