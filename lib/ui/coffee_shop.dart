@@ -16,7 +16,7 @@ class CoffeeShop extends ConsumerWidget {
 
     return GridView.count(
       shrinkWrap: true,
-      //primary: false,
+      primary: false,
       childAspectRatio: MediaQuery.of(context).size.width /
           (MediaQuery.of(context).size.height / 1.5),
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),

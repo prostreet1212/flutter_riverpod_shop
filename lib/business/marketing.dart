@@ -45,17 +45,18 @@ class BadgeNotifier extends StateNotifier<List<CoffeMenu>>{
   void changBadgeCount(CoffeMenu cofee) {
 
     if (cofee.isBuy) {
-      state.add(cofee);
+      //state.add(cofee);
+      state=[...state,cofee];
 
     } else {
-      state.remove(cofee);
+      //state=state.remove(cofee);
+      state=[...state]..remove(cofee);
+
     }
   }
 
   void clearBadge() {
-    state.clear();
-
-
+    state=[...state]..clear();
   }
 
 
